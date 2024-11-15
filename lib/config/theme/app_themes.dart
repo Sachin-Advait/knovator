@@ -1,6 +1,5 @@
 import 'app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class AppThemes {
   static final ThemeData appTheme = ThemeData(
@@ -9,9 +8,6 @@ class AppThemes {
     scaffoldBackgroundColor: AppColors.background,
     appBarTheme: const AppBarTheme(
       surfaceTintColor: Colors.transparent,
-      systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: AppColors.background,
-      ),
     ),
     iconTheme: const IconThemeData(color: Colors.white),
     dialogTheme: const DialogTheme(
