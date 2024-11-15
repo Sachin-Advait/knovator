@@ -7,44 +7,45 @@ sealed class PostsState extends Equatable {
   List<Object> get props => [];
 }
 
-/// ----------------------- UI States -----------------------
+/// ----------------------- Builder States -----------------------
 
-sealed class PostsUIState extends PostsState {}
+sealed class PostsBuilderState extends PostsState {}
 
-final class PostsInitialUIState extends PostsUIState {}
+final class PostsInitialBuilderState extends PostsBuilderState {}
 
-final class SuccessfullyRetrievedPostsUIState extends PostsUIState {
+final class SuccessfullyRetrievedPostsBuilderState extends PostsBuilderState {
   final List<PostsModel> posts;
 
-  SuccessfullyRetrievedPostsUIState({
+  SuccessfullyRetrievedPostsBuilderState({
     required this.posts,
   });
+
+  SuccessfullyRetrievedPostsBuilderState copyWith(int postId) {
+    final toUpdateIndex = posts.indexWhere((element) => element.id == postId);
+    posts[toUpdateIndex].isRead = true;
+
+    return SuccessfullyRetrievedPostsBuilderState(posts: posts);
+  }
 }
 
-final class FailedToRetrievePostsUIState extends PostsUIState {
+final class FailedToRetrievePostsBuilderState extends PostsBuilderState {
   final DioException error;
 
-  FailedToRetrievePostsUIState({
+  FailedToRetrievePostsBuilderState({
     required this.error,
-  });
-}
-
-final class SilentlyLoadPostsFromLocalDatabaseUIState extends PostsUIState {
-  final List<PostsModel> posts;
-
-  SilentlyLoadPostsFromLocalDatabaseUIState({
-    required this.posts,
   });
 }
 
 /// ----------------------- Action States -----------------------
 
-sealed class PostsActionState extends PostsState {}
+sealed class PostsListenerState extends PostsState {}
 
-final class NavigateToPostDetailsActionState extends PostsActionState {
+final class NavigateToPostDetailsListenerState extends PostsListenerState {
   final int postId;
+  final SuccessfullyRetrievedPostsBuilderState successState;
 
-  NavigateToPostDetailsActionState({
+  NavigateToPostDetailsListenerState({
+    required this.successState,
     required this.postId,
   });
 }

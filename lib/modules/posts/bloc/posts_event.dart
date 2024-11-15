@@ -10,9 +10,19 @@ sealed class PostsEvent extends Equatable {
 final class GetPostsEvent extends PostsEvent {}
 
 final class PostClickedEvent extends PostsEvent {
-  final PostsModel post;
+  final int postId;
 
   const PostClickedEvent({
-    required this.post,
+    required this.postId,
+  });
+}
+
+final class UpdatePostReaddEvent extends PostsEvent {
+  final int postId;
+  final SuccessfullyRetrievedPostsBuilderState successState;
+
+  const UpdatePostReaddEvent({
+    required this.postId,
+    required this.successState,
   });
 }

@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:dio/dio.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -13,30 +12,50 @@ part 'posts_state.dart';
 class PostsBloc extends Bloc<PostsEvent, PostsState> {
   final PostsRepository _postsRepository;
 
-  PostsBloc(this._postsRepository) : super(PostsInitialUIState()) {
+  PostsBloc(this._postsRepository) : super(PostsInitialBuilderState()) {
     on<GetPostsEvent>(_getPosts);
-    on<PostClickedEvent>(_updatePostReadAndGoToPostDetails);
+    on<PostClickedEvent>(_goToPostDetails);
+    on<UpdatePostReaddEvent>(_updatePostRead);
   }
 
   Future<void> _getPosts(event, emit) async {
     final dataState = await _postsRepository.getPosts();
     if (dataState is DataSuccess) {
       emit(
-        SuccessfullyRetrievedPostsUIState(
+        SuccessfullyRetrievedPostsBuilderState(
           posts: dataState.data!,
         ),
       );
     } else {
       emit(
-        FailedToRetrievePostsUIState(
+        FailedToRetrievePostsBuilderState(
           error: dataState.error!,
         ),
       );
     }
   }
 
-  void _updatePostReadAndGoToPostDetails(
+  void _goToPostDetails(
     PostClickedEvent event,
     Emitter<PostsState> emit,
-  ) {}
+  ) {
+    final successState = state as SuccessfullyRetrievedPostsBuilderState;
+    emit(
+      NavigateToPostDetailsListenerState(
+        postId: event.postId,
+        successState: successState,
+      ),
+    );
+  }
+
+  void _updatePostRead(
+    UpdatePostReaddEvent event,
+    Emitter<PostsState> emit,
+  ) {
+    emit(
+      event.successState.copyWith(
+        event.postId,
+      ),
+    );
+  }
 }
