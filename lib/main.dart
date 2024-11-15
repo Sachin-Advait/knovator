@@ -1,12 +1,12 @@
-import 'package:bot_toast/bot_toast.dart';
+import 'package:knovator/get_it.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:knovator/config/constant/app_strings.dart';
+import 'package:bot_toast/bot_toast.dart';
+import 'package:knovator/routes/app_pages.dart';
 import 'package:knovator/config/theme/app_colors.dart';
 import 'package:knovator/config/theme/app_themes.dart';
-import 'package:knovator/get_it.dart';
-import 'package:knovator/routes/app_pages.dart';
+import 'package:knovator/config/constant/app_strings.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
