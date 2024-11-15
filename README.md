@@ -1,18 +1,18 @@
 # knovator
 This Flutter app consumes the JSONPlaceholder API to show a list of posts. On tapping a post in the list, the app loads a full description of a post. The app uses the BLoC pattern for managing its state and several third-party libraries for more functions and user interface.
 
-Features
-Shows a list of posts fetched by the API (https://jsonplaceholder.typicode.com/posts).
-Every post is listed with a light yellow background color.
-On tapping at a post, it takes to a detail screen with the description of that post, or the body from the API.
-Timer Functionality: The timer starts counting when the item appears on the screen, pauses when it disappears or when the post is tapped, and resumes when the item reappears.
-Local Storage: The app stores post data locally and synchronizes in the background with the API to keep data up-to-date.
-Architecture of the app is done using the BLoC pattern, Business Logic Component, separates UI from the business logic. This approach has the following benefits in choosing BLoC architecture:
-Separation of Concerns: Separates quite well that concerns UI layers from business logic; it makes the code very testable and maintainable.
-Predictable state management: BLoC simplifies state transitions handling and maintaining an app's state.
+### Features
+- [x] Shows a list of posts fetched by the API (https://jsonplaceholder.typicode.com/posts).
+- [x] Every post is listed with a light yellow background color.
+- [x] On tapping at a post, it takes to a detail screen with the description of that post, or the body from the API.
+- [x] Timer Functionality: The timer starts counting when the item appears on the screen, pauses when it disappears or when the post is tapped, and resumes when the item reappears.
+- [x] The app stores post data locally and synchronizes in the background with the API to keep data up-to-date.
+- [x] Architecture of the app is done using the BLoC pattern, Business Logic Component, separates UI from the business logic. This approach has the following benefits in choosing BLoC architecture:
+- [x] Separation of Concerns: Separates quite well that concerns UI layers from business logic; it makes the code very testable and maintainable.
+- [x] Predictable state management: BLoC simplifies state transitions handling and maintaining an app's state.
 
 
-Architecture
+### Architecture
 The application follows a clean and modular architecture that separates the UI, logic, and data layers:
 
 UI Layer: Displays the list of posts and handles user interaction.
