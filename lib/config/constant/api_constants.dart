@@ -8,5 +8,5 @@ class ApiConstants {
 
   // Auth APIs
   static const String POSTS = 'posts';
-  static const String SINGLE_POST = 'posts/';
+  static const String POST_DETIALS = 'posts/';
 }
