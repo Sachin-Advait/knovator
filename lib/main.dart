@@ -5,17 +5,20 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:knovator/config/constant/app_strings.dart';
 import 'package:knovator/config/theme/app_colors.dart';
 import 'package:knovator/config/theme/app_themes.dart';
+import 'package:knovator/get_it.dart';
 import 'package:knovator/routes/app_pages.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  getItSetup();
 
   await SystemChrome.setPreferredOrientations(
     [DeviceOrientation.portraitUp],
   );
 
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle.light.copyWith(
+    SystemUiOverlayStyle.dark.copyWith(
       statusBarColor: AppColors.background,
       systemNavigationBarDividerColor: AppColors.background,
       systemNavigationBarColor: AppColors.background,
