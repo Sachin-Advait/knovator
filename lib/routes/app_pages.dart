@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:knovator/modules/splash/bloc/splash_bloc.dart';
-import 'package:knovator/modules/splash/page/splash.dart';
+import 'package:knovator/modules/splash/page/splash_page.dart';
 import 'package:knovator/routes/app_routes.dart';
 import 'package:knovator/routes/deflaut_route.dart';
 
@@ -27,7 +27,7 @@ class AppPages {
               ..add(
                 NavigateToNextEvent(),
               ),
-            child: const Splash(),
+            child: const SplashPage(),
           ),
         );
 
