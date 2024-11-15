@@ -33,6 +33,7 @@ class SplashPage extends StatelessWidget {
                 borderRadius: BorderRadius.circular(30),
                 child: Image.asset(
                   AppImages.appLogo,
+                  height: 150,
                 ),
               ),
             ),
