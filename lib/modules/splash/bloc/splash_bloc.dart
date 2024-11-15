@@ -6,7 +6,7 @@ part 'splash_event.dart';
 part 'splash_state.dart';
 
 class SplashBloc extends Bloc<SplashEvent, SplashState> {
-  SplashBloc() : super(SplashInitial()) {
+  SplashBloc() : super(SplashInitialBuilderState()) {
     on<NavigateToNextEvent>(_goToNext);
   }
 
@@ -16,6 +16,6 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   ) async {
     await Future.delayed(const Duration(milliseconds: 1500));
 
-    emit(NavigateToPostsActionState());
+    emit(NavigateToPostsListenerState());
   }
 }
