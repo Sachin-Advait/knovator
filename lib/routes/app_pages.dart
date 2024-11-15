@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:knovator/get_it.dart';
+import 'package:knovator/modules/post_details/bloc/post_details_bloc.dart';
+import 'package:knovator/modules/post_details/page/post_details_page.dart';
 import 'package:knovator/modules/posts/bloc/posts_bloc.dart';
 import 'package:knovator/modules/posts/page/posts_page.dart';
 import 'package:knovator/modules/splash/bloc/splash_bloc.dart';
@@ -36,6 +38,16 @@ class AppPages {
           BlocProvider(
             create: (context) => getIt.get<PostsBloc>()..add(GetPostsEvent()),
             child: const PostsPage(),
+          ),
+        );
+
+      case AppRoutes.POST_DETAILS:
+        final postId = (settings.arguments as Map<String, int>)['post_id']!;
+        return _buildRoutes(
+          BlocProvider(
+            create: (context) => getIt.get<PostDetailsBloc>()
+              ..add(GetPostDetailsEvent(postId: postId)),
+            child: const PostDetailsPage(),
           ),
         );
 
