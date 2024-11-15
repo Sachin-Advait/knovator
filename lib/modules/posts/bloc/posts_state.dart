@@ -20,6 +20,9 @@ final class SuccessfullyRetrievedPostsBuilderState extends PostsBuilderState {
     required this.posts,
   });
 
+  @override
+  List<Object> get props => [posts];
+
   SuccessfullyRetrievedPostsBuilderState copyWith(int postId) {
     final toUpdateIndex = posts.indexWhere((element) => element.id == postId);
     posts[toUpdateIndex].isRead = true;

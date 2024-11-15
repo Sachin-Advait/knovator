@@ -32,10 +32,20 @@ class PostBuilder extends StatelessWidget {
             );
 
           case FailedToRetrievePostsBuilderState failedState:
-            return Center(
-              child: Text(
-                failedState.error.message ?? AppErrors.unknownErrorDetails,
-                style: Theme.of(context).textTheme.titleLarge,
+            return Padding(
+              padding: const EdgeInsets.all(20),
+              child: Column(
+                children: [
+                  Text(
+                    AppErrors.unknownErrorDetails,
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    failedState.error.error.toString(),
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                ],
               ),
             );
         }

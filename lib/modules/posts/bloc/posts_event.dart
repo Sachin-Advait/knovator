@@ -26,3 +26,24 @@ final class UpdatePostReaddEvent extends PostsEvent {
     required this.successState,
   });
 }
+
+final class StartPostTimerEvent extends PostsEvent {
+  final int postId;
+  const StartPostTimerEvent({
+    required this.postId,
+  });
+}
+
+final class StopPostTimerEvent extends PostsEvent {
+  final int postId;
+  const StopPostTimerEvent({
+    required this.postId,
+  });
+}
+
+final class _UpdatePostElapsedTimeEvent extends PostsEvent {
+  final int postId;
+  const _UpdatePostElapsedTimeEvent({
+    required this.postId,
+  });
+}
