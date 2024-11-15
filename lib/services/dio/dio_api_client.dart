@@ -1,7 +1,7 @@
-import 'package:knovator/config/constant/api_constants.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:knovator/services/api_client.dart';
+import 'package:knovator/config/constant/api_constants.dart';
 
 class DioApiClient implements ApiClient {
   DioApiClient() {
@@ -13,9 +13,9 @@ class DioApiClient implements ApiClient {
   Dio _onInit() {
     final dio = Dio();
     dio.options.baseUrl = ApiConstants.BASE_URL;
-    dio.options.sendTimeout = const Duration(milliseconds: 60000);
-    dio.options.connectTimeout = const Duration(milliseconds: 60000);
-    dio.options.receiveTimeout = const Duration(milliseconds: 60000);
+    dio.options.sendTimeout = const Duration(seconds: 10);
+    dio.options.connectTimeout = const Duration(seconds: 10);
+    dio.options.receiveTimeout = const Duration(seconds: 10);
 
     dio.interceptors.add(
       InterceptorsWrapper(
@@ -50,11 +50,6 @@ class DioApiClient implements ApiClient {
     );
 
     return dio;
-  }
-
-  @override
-  void closeDioClient() {
-    _dio.close(force: true);
   }
 
   @override

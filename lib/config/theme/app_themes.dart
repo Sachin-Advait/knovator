@@ -1,5 +1,5 @@
-import 'app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:knovator/config/theme/app_colors.dart';
 
 class AppThemes {
   static final ThemeData appTheme = ThemeData(
