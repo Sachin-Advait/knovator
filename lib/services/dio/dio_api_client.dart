@@ -58,15 +58,15 @@ class DioApiClient implements ApiClient {
   }
 
   @override
-  posts() async {
-    final response = await _dio.get<Map<String, dynamic>>(
+  getPosts() async {
+    final response = await _dio.get<List<dynamic>>(
       ApiConstants.POSTS,
     );
     return response;
   }
 
   @override
-  postDetails(postId) async {
+  getPostDetails(postId) async {
     final response = await _dio.get<Map<String, dynamic>>(
       '${ApiConstants.POST_DETIALS}$postId',
     );
