@@ -1,10 +1,9 @@
-import 'package:knovator/config/constant/app_errors.dart';
-import 'package:knovator/config/theme/app_colors.dart';
-import 'package:knovator/modules/posts/components/posts_view.dart';
-
-import '../bloc/posts_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:knovator/config/theme/app_colors.dart';
+import 'package:knovator/config/constant/app_errors.dart';
+import 'package:knovator/modules/posts/bloc/posts_bloc.dart';
+import 'package:knovator/modules/posts/components/posts_view.dart';
 
 class PostBuilder extends StatelessWidget {
   const PostBuilder({

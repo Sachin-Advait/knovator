@@ -1,16 +1,11 @@
-import 'posts_builder.dart';
-import 'posts_listener.dart';
 import 'package:flutter/material.dart';
 import 'package:knovator/config/theme/app_colors.dart';
+import 'package:knovator/modules/posts/page/posts_builder.dart';
+import 'package:knovator/modules/posts/page/posts_listener.dart';
 
-class PostsPage extends StatefulWidget {
+class PostsPage extends StatelessWidget {
   const PostsPage({super.key});
 
-  @override
-  State<PostsPage> createState() => _PostsPageState();
-}
-
-class _PostsPageState extends State<PostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
