@@ -15,25 +15,20 @@ class AppThemes {
       surfaceTintColor: Colors.white,
     ),
     textTheme: const TextTheme(
-      headlineMedium: TextStyle(
-        color: AppColors.black,
-        fontSize: 20,
-      ),
-      headlineSmall: TextStyle(
-        color: AppColors.black,
-        fontSize: 18,
-      ),
       titleLarge: TextStyle(
         color: AppColors.black,
-        fontSize: 16,
+        fontSize: 20,
+        fontWeight: FontWeight.w700,
       ),
       titleMedium: TextStyle(
         color: AppColors.black,
-        fontSize: 14,
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
       ),
       titleSmall: TextStyle(
         color: AppColors.black,
-        fontSize: 12,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
       ),
     ),
   );
